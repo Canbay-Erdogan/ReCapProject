@@ -10,12 +10,12 @@ namespace DataAccess.Concrete.InMemory
 {
     public class InMemoryCarDal : ICarDal
     {
-        public void Add()
+        public void Add(Car car)
         {
             throw new NotImplementedException();
         }
 
-        public void Delete()
+        public void Delete(Car car)
         {
             throw new NotImplementedException();
         }
@@ -25,12 +25,12 @@ namespace DataAccess.Concrete.InMemory
             throw new NotImplementedException();
         }
 
-        public Car GetById()
+        public Car GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public void Update()
+        public void Update(Car car)
         {
             throw new NotImplementedException();
         }
