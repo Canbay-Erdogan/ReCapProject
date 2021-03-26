@@ -14,7 +14,7 @@ namespace Business.ValidationRules.FluentValidation
         public CarValidator()
         {
             RuleFor(c => c.DailyPrice).GreaterThan(0).WithMessage("0 degeri olamaz");
-            RuleFor(c => c.Description).MinimumLength(2).WithMessage("açıklama 2 karekterden fazla olsun");
+            RuleFor(c => c.CarName).MinimumLength(2).WithMessage("araç adı 2 karekterden fazla olsun");
         }
     }
 }

@@ -14,6 +14,16 @@ namespace DataAccess.Concrete.EntityFramework
         {
             optionsBuilder.UseSqlServer(@"Server=(localdb)\MSSQLLocalDB;Integrated Security=True;Database=ReCapProject;Trusted_Connection=true");
         }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Car>().ToTable("Cars");
+            modelBuilder.Entity<Brand>().ToTable("Brands");
+            modelBuilder.Entity<Color>().ToTable("Colors");
+
+            modelBuilder.Entity<Color>().Property(c => c.Id).HasColumnName("Id");
+            modelBuilder.Entity<Color>().Property(c => c.Name).HasColumnName("Name");
+        }
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }

@@ -4,11 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Utilities.Results
+namespace Core.Entity
 {
-    public interface IResult
+    public interface IEntity
     {
-        bool Success { get; }
-        string Message { get; }
     }
 }
