@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -22,23 +23,27 @@ namespace Business.Concrete
         public IResult Add(Car car)
         {
             _carDal.Add(car);
-            return new SuccessResult("Başarıyla eklendi");
+            return new SuccessResult(Messages.CarAdded);
         }
 
         public IResult Delete(Car car)
         {
             _carDal.Delete(car);
-            return new SuccessResult("başarıyla silindi");
+            return new SuccessResult(Messages.SuccessDeleted);
         }
 
         public IDataResult<List<Car>> GetAll()
         {
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), "listelendi");
+            if (DateTime.Now.Hour==1)
+            {
+               return new ErrorDataResult<List<Car>>(Messages.Maintance);
+            }
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), Messages.Listed);
         }
 
         public IDataResult<Car> GetCarsByBrandId(int brandId)
         {
-            return new SuccessDataResult<Car>(_carDal.Get(c => c.BrandId == brandId),"brand id ye göre listelendi");
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.BrandId == brandId),Messages.ListedByBrandId);
         }
 
         public IDataResult<Car> GetCarsByColorId(int ColorId)
@@ -48,13 +53,13 @@ namespace Business.Concrete
 
         public IDataResult<List<CarDetailDto>> GetCarsDetail()
         {
-            return new SuccessDataResult <List<CarDetailDto >> (_carDal.GetCarDetailDtos(),"Car Deail listelendi");
+            return new SuccessDataResult <List<CarDetailDto >> (_carDal.GetCarDetailDtos(),Messages.ListedCarDetail);
         }
 
         public IResult Update(Car car)
         {
             _carDal.Update(car);
-            return new SuccessResult("Update başarılı");
+            return new SuccessResult(Messages.SuccessUpdate);
         }
     }
 }

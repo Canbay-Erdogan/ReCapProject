@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Business.Constants;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
@@ -21,17 +22,17 @@ namespace Business.Concrete
 
         public IResult Add(Color brand)
         {
-            return new SuccessResult("Ekleme başarılı");
+            return new SuccessResult(Messages.SuccessAdded);
         }
 
         public IResult Delete(Color brand)
         {
-            return new SuccessResult("silme başarılı");
+            return new SuccessResult(Messages.SuccessDeleted);
         }
 
         public IDataResult<List<Color>> GetAll()
         {
-            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(),"Listeleme başarılı");
+            return new SuccessDataResult<List<Color>>(_colorDal.GetAll(),Messages.Listed);
         }
 
         public IDataResult<Color> GetColordById(int ColorId)
@@ -41,7 +42,7 @@ namespace Business.Concrete
 
         public IResult Update(Color brand)
         {
-            return new SuccessResult("Update Başarılı");
+            return new SuccessResult(Messages.SuccessUpdate);
         }
     }
 }
