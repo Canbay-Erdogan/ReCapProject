@@ -33,6 +33,8 @@ namespace ReCapApi
 
             services.AddControllers();
             services.AddSingleton<ICarService, CarManager>();
+            services.AddSingleton<IColorService, ColorManager>();
+            services.AddSingleton<IBrandService, BrandManager>();
             services.AddSingleton<ICarDal, EfCarDal>();
             services.AddSwaggerGen(c =>
             {
