@@ -14,7 +14,16 @@ namespace Business.ValidationRules.FluentValidation
         public CarValidator()
         {
             RuleFor(c => c.DailyPrice).GreaterThan(0).WithMessage("0 degeri olamaz");
+            RuleFor(c => c.DailyPrice).GreaterThanOrEqualTo(75).When(c => c.BrandId == 4);
             RuleFor(c => c.CarName).MinimumLength(2).WithMessage("araç adı 2 karekterden fazla olsun");
+
+            RuleFor(c => c.CarName).Must(StartWithA);
+        }
+
+        private bool StartWithA(string arg)
+        {
+            bool result = arg.StartsWith("A");
+            return result;
         }
     }
 }
