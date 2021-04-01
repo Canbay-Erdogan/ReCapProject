@@ -23,6 +23,7 @@ namespace DataAccess.Concrete.EntityFramework
             modelBuilder.Entity<User>().ToTable("Users");
             modelBuilder.Entity<Customer>().ToTable("Customers");
             modelBuilder.Entity<Rental>().ToTable("Rentals");
+            modelBuilder.Entity<CarImage>().ToTable("CarImages");
 
             modelBuilder.Entity<Color>().Property(c => c.Id).HasColumnName("Id");
             modelBuilder.Entity<Color>().Property(c => c.Name).HasColumnName("Name");
@@ -33,5 +34,6 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<User> Users { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Rental> Rentals { get; set; }
+        public DbSet<CarImage> CarImages { get; set; }
     }
 }
