@@ -1,13 +1,9 @@
 ﻿using Business.Abstract;
-using Business.Constants;
+using Core.Entity.Concrete;
 using Core.Utilities.Results;
 using DataAccess.Abstract;
-using Entities.Concrete;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
@@ -20,27 +16,34 @@ namespace Business.Concrete
             _userDal = userDal;
         }
 
-        public IResult Add(User entity)
+        public void Add(Core.Entity.Concrete.User entity)
         {
-           _userDal.Add(entity);
-            return new SuccessResult(Messages.UserAdded);
+            _userDal.Add(entity);
         }
 
-        public IResult Delete(User entity)
+        public IResult Delete(Core.Entity.Concrete.User entity)
         {
-            _userDal.Delete(entity);
-            return new SuccessResult(Messages.SuccessDeleted);
+            throw new NotImplementedException();
         }
 
-        public IDataResult<List<User>> GetAll()
+        public IDataResult<List<Core.Entity.Concrete.User>> GetAll()
         {
-            return new SuccessDataResult<List<User>>(_userDal.GetAll(),Messages.Listed);
+            throw new NotImplementedException();
         }
 
-        public IResult Update(User entity)
+        public Core.Entity.Concrete.User GetByMail(string email)
         {
-            _userDal.Update(entity);
-            return new SuccessResult(Messages.SuccessUpdate);
+            return _userDal.Get(u => u.Email == email);
+        }
+
+        public List<OperationClaim> GetClaims(Core.Entity.Concrete.User user)
+        {
+            return _userDal.GetClaims(user);
+        }
+
+        public IResult Update(Core.Entity.Concrete.User entity)
+        {
+            throw new NotImplementedException();
         }
     }
 }

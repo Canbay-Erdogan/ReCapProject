@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Core.Entity.Concrete;
+using Entities.Concrete;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -20,7 +21,7 @@ namespace DataAccess.Concrete.EntityFramework
             modelBuilder.Entity<Car>().ToTable("Cars");
             modelBuilder.Entity<Brand>().ToTable("Brands");
             modelBuilder.Entity<Color>().ToTable("Colors");
-            modelBuilder.Entity<User>().ToTable("Users");
+            modelBuilder.Entity<Core.Entity.Concrete.User>().ToTable("Users");
             modelBuilder.Entity<Customer>().ToTable("Customers");
             modelBuilder.Entity<Rental>().ToTable("Rentals");
             modelBuilder.Entity<CarImage>().ToTable("CarImages");
@@ -31,9 +32,12 @@ namespace DataAccess.Concrete.EntityFramework
         public DbSet<Car> Cars { get; set; }
         public DbSet<Brand> Brands { get; set; }
         public DbSet<Color> Colors { get; set; }
-        public DbSet<User> Users { get; set; }
+       // public DbSet<User> Users { get; set; }
         public DbSet<Customer> Customers { get; set; }
         public DbSet<Rental> Rentals { get; set; }
         public DbSet<CarImage> CarImages { get; set; }
+        public DbSet<OperationClaim> OperationClaims { get; set; }
+        public DbSet<Core.Entity.Concrete.User> Users { get; set; }
+        public DbSet<UserOperationClaim> UserOperationClaims { get; set; }
     }
 }

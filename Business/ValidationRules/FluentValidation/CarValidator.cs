@@ -17,7 +17,7 @@ namespace Business.ValidationRules.FluentValidation
             RuleFor(c => c.DailyPrice).GreaterThanOrEqualTo(75).When(c => c.BrandId == 4);
             RuleFor(c => c.CarName).MinimumLength(2).WithMessage("araç adı 2 karekterden fazla olsun");
 
-            RuleFor(c => c.CarName).Must(StartWithA);
+           // RuleFor(c => c.CarName).Must(StartWithA);
         }
 
         private bool StartWithA(string arg)

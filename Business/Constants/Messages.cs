@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -26,5 +27,12 @@ namespace Business.Constants
         public static string ListedCarDetail="Araç Detayları Listelendi";
         public static string ListedByBrandId="Marka Id ye Göre Listelendi";
         public static string Maintance = "Bakım Zamanı";
+        public static string AuthorizationDenied="Erişim reddedildi";
+        public static string UserRegistered="kayıt olundu";
+        public static string UserNotFound="kullanıcı bulunamadı";
+        public static string PasswordError="şifre hatalı";
+        public static string SuccessfulLogin="giriş başarışı";
+        public static string UserAlreadyExists="kullanıcı var";
+        public static string AccessTokenCreated="token oluşturuldu";
     }
 }
